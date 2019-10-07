@@ -8,12 +8,13 @@ pipeline {
     stages {
         stage('build') {
             steps {
+                sh 'whoami'
                 sh 'npm install '
             }
         }
         stage('test') {
             steps {
-                sh 'apk add --repository https://alpine.secrethub.io/alpine/edge/main --allow-untrusted secrethub-cli'
+                sh 'whoami'
                 sh 'secrethub run -- node test.js'
             }
         }
