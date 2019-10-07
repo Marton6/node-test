@@ -3,7 +3,7 @@ pipeline {
     	docker { image 'node:alpine' }
     }
     environment {
-        SECRETHUB_CREDENTIAL = credentials('secrethub-credential')
+        SECRETHUB_CREDENTIAL = credentials('secrethub_credential')
     }
     stages {
         stage('build') {
