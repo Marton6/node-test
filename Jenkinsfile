@@ -1,17 +1,25 @@
 pipeline {
-    agent { docker { image 'node:alpine' } }
+    agent {
+    	docker { image 'node:alpine' }
+    }
+    environment {
+        SECRETHUB_CREDENTIAL = credentials('secrethub-credential')
+    }
     stages {
-        stage('test') {
-            steps {
-                sh 'apk add --repository https://alpine.secrethub.io/alpine/edge/main --allow-untrusted secrethub-cli'
-                sh 'secrethub run -- npm test'
-            }
-        }
         stage('build') {
             steps {
-                sh 'npm --version'
-                sh 'secrethub run -- npm start'
+                sh 'npm install '
             }
+        }
+        stage('test') {
+            steps {
+                sh 'secrethub run -- node test.js'
+            }
+        }
+        stage('deploy') {
+        	steps {
+        		/* ... */
+        	}
         }
     }
 } 
