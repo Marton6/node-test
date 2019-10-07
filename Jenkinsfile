@@ -8,13 +8,11 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'whoami'
                 sh 'npm install '
             }
         }
         stage('test') {
             steps {
-                sh 'whoami'
                 sh 'secrethub run -- node test.js'
             }
         }
