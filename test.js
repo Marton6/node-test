@@ -1,2 +1,2 @@
 var assert = require('assert');
-assert( process.env.TEST.lenght > 3)
+assert( process.env.TEST.length > 3)
