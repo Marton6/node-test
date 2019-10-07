@@ -1,6 +1,6 @@
 pipeline {
     agent {
-    	docker { image 'node:alpine' }
+    	dockerfile true
     }
     environment {
         SECRETHUB_CREDENTIAL = credentials('secrethub_credential')
