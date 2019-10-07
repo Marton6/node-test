@@ -16,8 +16,5 @@ pipeline {
                 sh 'secrethub run -- node test.js'
             }
         }
-        stage('deploy') {
-            /* ... */
-        }
     }
 } 
